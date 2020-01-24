@@ -1,0 +1,81 @@
+<html>
+
+    <head>
+        <title>BMI Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+        <style>
+            hr {
+            border: 0;
+            height: 1px;
+            background: #333;
+            background-image: linear-gradient(to right, #ccc, #333, #ccc);
+            }
+
+            span { 
+            display: block; 
+            margin-bottom: 2em; 
+            } 
+        </style>
+    </head>
+
+    <body style="background-color:cornsilk;">
+        <div class="w3-container">
+            <div class="w3-display-middle w3-card-2 w3-padding-large" style="background-color: white;">
+                <h1>BMI Calculator</h1>
+                <hr>
+                <p>
+                    Body mass index (BMI) is a measure of body fat that is calculated using the height and weight of a person.
+                    Essentially, it lets you know if your weight is in the "healthy range".
+                </p>
+                <p>
+                    Knowing your BMI is useful, as it can tell you when you may be at risk for a number of health conditions. For
+                    example, a BMI greater than 30 means that you qualify as an obese person, and are at a greater chance of having:
+                </p>
+                <ul>
+                    <li>High blood pressure</li>
+                    <li>Body pain</li>
+                    <li>Heart disease</li>
+                    <li>Type 2 Diabetes</li>
+                </ul>
+                <p>
+                    
+                </p>
+
+                <span></span>
+
+                <h3>How this Works</h3>
+                <hr>
+                <p>
+                    In the form below, please enter your email address, height, and weight. Shortly after you submit your information, we will 
+                    send you an email with the following statistics:
+                </p>
+                <ul>
+                    <li>Your BMI</li>
+                    <li>How healthy your weight is according to the BMI scale</li>
+                    <li>The average BMI of all the people in our database</li>
+                </ul>
+                <p>
+                    Your data is securely stored in our database. The personal information collected is only used for the purposes defined at the 
+                    time of the collection or a use that complies with these purposes. We do not share your information with any third parties.
+                </p>
+
+                <span></span>
+
+                <h3>Credit</h3>
+                <hr>
+                <p>
+                    <a href="https://www.everydayhealth.com/diet-nutrition/bmi/bmi-adults-yours-healthy-not-how-can-you-lose-weight/" target="_blank">Medical Information</a>
+                </p>
+                <p>
+                    <a href="https://www.cdc.gov/healthyweight/assessing/bmi/childrens_bmi/childrens_bmi_formula.html" target="_blank">BMI Equation</a>
+                </p>
+            </div>
+        </div>
+    </body>
+
+</html>
