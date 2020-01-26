@@ -28,7 +28,7 @@ class Data(db.Model):
 def index():
     return render_template("home.html")
 
-@app.route("/out", methods=["POST"])
+@app.route("/successful", methods=["POST"])
 def successful():
     try:
         if request.method == "POST":
