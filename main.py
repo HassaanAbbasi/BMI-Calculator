@@ -7,7 +7,7 @@ from sendMail import sendMail
 from sqlalchemy.sql import func
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = f"{os.environ.get('BMI_HEROKU_DB')}"
+app.config['SQLALCHEMY_DATABASE_URI'] = f"{os.environ.get('DATABASE_URL')}"
 db = SQLAlchemy(app)
 
 class Data(db.Model):
