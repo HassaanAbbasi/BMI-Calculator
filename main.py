@@ -7,7 +7,7 @@ from sendMail import sendMail
 from sqlalchemy.sql import func
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{os.environ.get('DB_USERNAME')}:{os.environ.get('DB_PASS')}@localhost/BMI_Calculator"
+app.config['SQLALCHEMY_DATABASE_URI'] = f"{os.environ.get('BMI_HEROKU_DB')}"
 db = SQLAlchemy(app)
 
 class Data(db.Model):
