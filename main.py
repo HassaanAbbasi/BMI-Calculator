@@ -30,33 +30,36 @@ def index():
 
 @app.route("/successful", methods=["POST"])
 def successful():
-    if request.method == "POST":
-        email = request.form["emailVal"]
-        height = request.form["heightVal"]
-        weight = request.form["weightVal"]
+    try:
+        if request.method == "POST":
+            email = request.form["emailVal"]
+            height = request.form["heightVal"]
+            weight = request.form["weightVal"]
 
-        #If email doesn't exist in database
-        if db.session.query(Data).filter(Data.emailDB == email).count() == 0:
-            bmi = (float(weight)) / (float(height) / 100) ** 2
-            data = Data(email, height, weight, bmi)
-            bmiRange = bmiRangeGet(bmi)
-            average = db.session.query(func.avg(Data.bmiDB)).scalar()
-            sendMail(email, height, weight, bmi, bmiRange, average)
-            db.session.add(data)
-            db.session.commit()
-            return render_template("successful.html") 
-        
-        #Update info if email exists in database
-        elif db.session.query(Data).filter(Data.emailDB == email).count() == 1:
-            entity = db.session.query(Data).filter(Data.emailDB == email).first()
-            entity.heightDB = height
-            entity.weightDB = weight
-            entity.bmiDB = (float(entity.weightDB)) / (float(entity.heightDB) / 100) ** 2
-            bmiRange = bmiRangeGet(entity.bmiDB)
-            average = db.session.query(func.avg(Data.bmiDB)).scalar()
-            sendMail(email, height, weight, entity.bmiDB, bmiRange, average)
-            db.session.commit()
-            return render_template("updated.html") 
+            #If email doesn't exist in database
+            if db.session.query(Data).filter(Data.emailDB == email).count() == 0:
+                bmi = (float(weight)) / (float(height) / 100) ** 2
+                data = Data(email, height, weight, bmi)
+                bmiRange = bmiRangeGet(bmi)
+                average = db.session.query(func.avg(Data.bmiDB)).scalar()
+                sendMail(email, height, weight, bmi, bmiRange, average)
+                db.session.add(data)
+                db.session.commit()
+                return render_template("successful.html") 
+            
+            #Update info if email exists in database
+            elif db.session.query(Data).filter(Data.emailDB == email).count() == 1:
+                entity = db.session.query(Data).filter(Data.emailDB == email).first()
+                entity.heightDB = height
+                entity.weightDB = weight
+                entity.bmiDB = (float(entity.weightDB)) / (float(entity.heightDB) / 100) ** 2
+                bmiRange = bmiRangeGet(entity.bmiDB)
+                average = db.session.query(func.avg(Data.bmiDB)).scalar()
+                sendMail(email, height, weight, entity.bmiDB, bmiRange, average)
+                db.session.commit()
+                return render_template("updated.html")
+    except:
+        return render_template("error.html") 
 
 def bmiRangeGet(bmi):
     if (bmi < 18.5):
