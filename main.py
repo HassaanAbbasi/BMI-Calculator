@@ -58,7 +58,8 @@ def successful():
                 sendMail(email, height, weight, entity.bmiDB, bmiRange, average)
                 db.session.commit()
                 return render_template("updated.html")
-    except:
+    except Exception as e:
+        print(e)
         return render_template("error.html") 
 
 def bmiRangeGet(bmi):
