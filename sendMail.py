@@ -2,7 +2,7 @@ import os
 from email.mime.text import MIMEText
 import smtplib
 
-def sendMail(email, height, weight, bmi, bmiRange, average):
+def sendMail(email, height, weight, bmi, bmiRange):
     fromEmail = f"{os.environ.get('SAANBOT_USER')}"
     fromPass = f"{os.environ.get('SAANBOT_PASS')}"
     toEmail = email
@@ -22,8 +22,6 @@ def sendMail(email, height, weight, bmi, bmiRange, average):
                     </ul>
                     <br>
                     Based off your data, your BMI is <strong>{round(bmi, 1)}</strong>.
-                    <br>
-                    The current average BMI in our database is: <strong>{round(average, 1)}</strong>.
                     <br>
                     According to the chart below, your BMI is in the <strong>{bmiRange}</strong> range.
                     <br>
