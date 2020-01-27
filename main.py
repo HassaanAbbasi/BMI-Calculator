@@ -41,7 +41,8 @@ def successful():
                 bmi = (float(weight)) / (float(height) / 100) ** 2
                 data = Data(email, height, weight, bmi)
                 bmiRange = bmiRangeGet(bmi)
-                sendMail(email, height, weight, bmi, bmiRange)
+                average = db.session.query(func.avg(Data.bmiDB)).scalar()
+                sendMail(email, height, weight, bmi, bmiRange, average)
                 db.session.add(data)
                 db.session.commit()
                 return render_template("successful.html") 
@@ -53,7 +54,8 @@ def successful():
                 entity.weightDB = weight
                 entity.bmiDB = (float(entity.weightDB)) / (float(entity.heightDB) / 100) ** 2
                 bmiRange = bmiRangeGet(entity.bmiDB)
-                sendMail(email, height, weight, entity.bmiDB, bmiRange)
+                average = db.session.query(func.avg(Data.bmiDB)).scalar()
+                sendMail(email, height, weight, entity.bmiDB, bmiRange, average)
                 db.session.commit()
                 return render_template("updated.html")
     except Exception as e:
