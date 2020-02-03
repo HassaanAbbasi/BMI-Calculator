@@ -5,6 +5,19 @@ Once the data is submitted, the user automatically receives an email that contai
 
 The site can be accessed at https://bmi-calculator-db.herokuapp.com/.
 
+## Demo
+Submitting data for the first time on an email:
+
+![Data submit](demo/bmi1.gif)
+
+Updating info for the same email:
+
+![Update](demo/bmi2.gif)
+
+Email received by user:
+
+![Email](demo/bmi3.PNG)
+
 ## Built With
 * [PostGreSQL](https://www.postgresql.org/) - This project's relational database
 * [Smtplib](https://docs.python.org/3/library/smtplib.html) - Defines an SMTP session that can be used to send emails
