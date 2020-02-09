@@ -6,7 +6,7 @@ Once the data is submitted, the user automatically receives an email that contai
 The site can be accessed at https://bmi-calculator-db.herokuapp.com/.
 
 ## Demo
-Submitting data for the first time on an email:
+Submitting data for the first time with an email:
 
 ![Data submit](demo/bmi1.gif)
 
